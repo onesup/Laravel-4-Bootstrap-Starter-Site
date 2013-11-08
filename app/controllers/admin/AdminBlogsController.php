@@ -82,8 +82,12 @@ class AdminBlogsController extends AdminController {
             $this->post->user_id          = $user->id;
 
             // Was the blog post created?
+            print_f(Input::file('avatar'));
             if($this->post->save())
             {
+                $user = User::find($this->post->id);
+                $user->avatar = Input::file('avatar');
+                $user->save();
                 // Redirect to the new blog post page
                 return Redirect::to('admin/blogs/' . $this->post->id . '/edit')->with('success', Lang::get('admin/blogs/messages.create.success'));
             }

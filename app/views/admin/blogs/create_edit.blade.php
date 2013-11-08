@@ -27,6 +27,13 @@
 					</div>
 				</div>
 				<!-- ./ post title -->
+				<div class="form-group {{{ $errors->has('illustration') ? 'error' : '' }}}">
+                    <div class="col-md-12">
+                        <label class="control-label" for="illustration">Illustration</label>
+						<input class="form-control" type="file" name="illustration" id="illustration" />
+						{{{ $errors->first('illustration', '<span class="help-inline">:message</span>') }}}
+					</div>
+				</div>
 
 				<!-- Content -->
 				<div class="form-group {{{ $errors->has('content') ? 'error' : '' }}}">

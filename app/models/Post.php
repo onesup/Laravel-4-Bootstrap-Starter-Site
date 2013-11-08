@@ -3,7 +3,20 @@
 use Illuminate\Support\Facades\URL; # not sure why i need this here :c
 use Robbo\Presenter\PresentableInterface;
 
+
 class Post extends Eloquent implements PresentableInterface {
+    use Codesleeve\Stapler\Stapler;    
+
+    public function __construct(array $attributes = array()) {
+    $this->hasAttachedFile('illustration', [
+      'styles' => [
+      'medium' => '300x300',
+      'thumb' => '100x100'
+      ]
+    ]);
+  
+    parent::__construct($attributes);
+  }
 
 	/**
 	 * Deletes a blog post and all

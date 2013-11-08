@@ -10,14 +10,16 @@
         }
     ],
 	"require": {
-		"laravel/framework": "4.0.*",
-		"twbs/bootstrap":  "3.0.0",
-		"zizaco/confide": "dev-master",
-		"zizaco/entrust": "dev-master",
-		"jasonlewis/basset": "dev-master",
-		"robclancy/presenter": "1.2.*",
-        "j20/php-uuid": "dev-master",
-        "bllim/datatables": "*"
+		"laravel/framework"   : "4.0.*",
+		"twbs/bootstrap"      :  "3.0.0",
+		"zizaco/confide"      : "dev-master",
+		"zizaco/entrust"      : "dev-master",
+		"jasonlewis/basset"   : "dev-master",
+		"robclancy/presenter" : "1.2.*",
+    "j20/php-uuid"        : "dev-master",
+    "bllim/datatables"    : "*",
+    "laravel/framework"   : "4.0.*",
+    "codesleeve/stapler"  : "dev-master"
 	},
 	"require-dev": {
         "way/generators": "dev-master",

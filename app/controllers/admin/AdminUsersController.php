@@ -97,7 +97,8 @@ class AdminUsersController extends AdminController {
         // auto validation.
         $this->user->password_confirmation = Input::get( 'password_confirmation' );
         $this->user->confirmed = Input::get( 'confirm' );
-
+        $this->user->avatar = Input::file( 'avatar' );
+        $this->user->email = Input::get( 'email' );
         // Permissions are currently tied to roles. Can't do this yet.
         //$user->permissions = $user->roles()->preparePermissionsForSave(Input::get( 'permissions' ));
 

@@ -8,6 +8,7 @@
 		</ul>
 	<!-- ./ tabs -->
 
+
 	{{-- Create User Form --}}
 	<form class="form-horizontal" method="post" action="@if (isset($user)){{ URL::to('admin/users/' . $user->id . '/edit') }}@endif" autocomplete="off">
 		<!-- CSRF Token -->
@@ -57,6 +58,16 @@
 					</div>
 				</div>
 				<!-- ./ password confirm -->
+
+                <!-- avatar -->
+				<div class="form-group {{{ $errors->has('avatar') ? 'error' : '' }}}">
+					<label class="col-md-2 control-label" for="avatar">Avatar</label>
+					<div class="col-md-10">
+						<input class="form-control" type="file" name="avatar" id="avatar" value="" />
+						{{{ $errors->first('avatar', '<span class="help-inline">:message</span>') }}}
+					</div>
+				</div>
+                <!-- ./ avartar -->
 
 				<!-- Activation Status -->
 				<div class="form-group {{{ $errors->has('activated') || $errors->has('confirm') ? 'error' : '' }}}">
