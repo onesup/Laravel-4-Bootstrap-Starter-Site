@@ -10,7 +10,7 @@
 
 
 	{{-- Create User Form --}}
-	<form class="form-horizontal" method="post" action="@if (isset($user)){{ URL::to('admin/users/' . $user->id . '/edit') }}@endif" autocomplete="off">
+    {{ Form::open(array('url' => (isset($user)) ? URL::to('admin/users/' . $user->id . '/edit') : '', 'files' => true ,'class' => 'form-horizontal')) }}
 		<!-- CSRF Token -->
 		<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 		<!-- ./ csrf token -->
@@ -63,6 +63,7 @@
 				<div class="form-group {{{ $errors->has('avatar') ? 'error' : '' }}}">
 					<label class="col-md-2 control-label" for="avatar">Avatar</label>
 					<div class="col-md-10">
+                        <img src="<?= $user->avatar->url() ?>" >
 						<input class="form-control" type="file" name="avatar" id="avatar" value="" />
 						{{{ $errors->first('avatar', '<span class="help-inline">:message</span>') }}}
 					</div>
@@ -124,5 +125,5 @@
 			</div>
 		</div>
 		<!-- ./ form actions -->
-	</form>
+	{{ Form::close() }}
 @stop

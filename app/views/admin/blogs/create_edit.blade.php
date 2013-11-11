@@ -2,6 +2,9 @@
 
 {{-- Content --}}
 @section('content')
+
+
+
 	<!-- Tabs -->
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#tab-general" data-toggle="tab">General</a></li>
@@ -9,7 +12,7 @@
 	<!-- ./ tabs -->
 
 	{{-- Edit Blog Form --}}
-	<form class="form-horizontal" method="post" action="@if (isset($post)){{ URL::to('admin/blogs/' . $post->id . '/edit') }}@endif" autocomplete="off">
+	<form class="form-horizontal" method="post" action="@if (isset($post)){{ URL::to('admin/blogs/' . $post->id . '/edit') }}@endif" autocomplete="off" enctype="multipart/form-data">
 		<!-- CSRF Token -->
 		<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 		<!-- ./ csrf token -->
@@ -27,8 +30,10 @@
 					</div>
 				</div>
 				<!-- ./ post title -->
+
 				<div class="form-group {{{ $errors->has('illustration') ? 'error' : '' }}}">
                     <div class="col-md-12">
+                        <img src="<?= $post->illustration->url() ?>" >
                         <label class="control-label" for="illustration">Illustration</label>
 						<input class="form-control" type="file" name="illustration" id="illustration" />
 						{{{ $errors->first('illustration', '<span class="help-inline">:message</span>') }}}

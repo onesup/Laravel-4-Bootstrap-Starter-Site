@@ -179,7 +179,7 @@ class AdminUsersController extends AdminController {
             $user->username = Input::get( 'username' );
             $user->email = Input::get( 'email' );
             $user->confirmed = Input::get( 'confirm' );
-
+            $user->avatar = Input::file( 'avatar' );
             $password = Input::get( 'password' );
             $passwordConfirmation = Input::get( 'password_confirmation' );
 

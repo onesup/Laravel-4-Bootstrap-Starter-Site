@@ -76,18 +76,15 @@ class AdminBlogsController extends AdminController {
             $this->post->title            = Input::get('title');
             $this->post->slug             = Str::slug(Input::get('title'));
             $this->post->content          = Input::get('content');
+            $this->post->illustration     = Input::file('illustration');
             $this->post->meta_title       = Input::get('meta-title');
             $this->post->meta_description = Input::get('meta-description');
             $this->post->meta_keywords    = Input::get('meta-keywords');
             $this->post->user_id          = $user->id;
 
             // Was the blog post created?
-            print_f(Input::file('avatar'));
             if($this->post->save())
             {
-                $user = User::find($this->post->id);
-                $user->avatar = Input::file('avatar');
-                $user->save();
                 // Redirect to the new blog post page
                 return Redirect::to('admin/blogs/' . $this->post->id . '/edit')->with('success', Lang::get('admin/blogs/messages.create.success'));
             }
@@ -151,6 +148,7 @@ class AdminBlogsController extends AdminController {
             $post->title            = Input::get('title');
             $post->slug             = Str::slug(Input::get('title'));
             $post->content          = Input::get('content');
+            $post->illustration     = Input::file('illustration');
             $post->meta_title       = Input::get('meta-title');
             $post->meta_description = Input::get('meta-description');
             $post->meta_keywords    = Input::get('meta-keywords');
